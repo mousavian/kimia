@@ -1,5 +1,6 @@
 defmodule Kimia.Router do
   use Kimia.Web, :router
+  use Addict.RoutesHelper
 
   pipeline :browser do
     plug :accepts, ["html"]
@@ -13,10 +14,11 @@ defmodule Kimia.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", Kimia do
+  scope "/" do
     pipe_through :browser # Use the default browser stack
+    addict :routes
 
-    get "/", PageController, :index
+    get "/", Kimia.PageController, :index
   end
 
   # Other scopes may use custom stacks.
