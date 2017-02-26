@@ -28,8 +28,9 @@ import_config "#{Mix.env}.exs"
 
 config :addict,
   secret_key: "2432622431322454546b4d514a62783036553735543768467356505175",
+  generate_csrf_token: (fn -> Phoenix.Controller.get_csrf_token end),
   extra_validation: fn ({valid, errors}, user_params) -> {valid, errors} end, # define extra validation here
   user_schema: Kimia.User,
   repo: Kimia.Repo,
   from_email: "no-reply@example.com", # CHANGE THIS
-mail_service: nil
+  mail_service: nil

@@ -16,7 +16,8 @@
       <header class="header">
         <nav role="navigation">
           <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
+            <li><a href="<%= login_path(@conn, :login) %>">Login</a></li>
+            <li><a href="<%= register_path(@conn, :register) %>">Register</a></li>
           </ul>
         </nav>
         <span class="logo"></span>
